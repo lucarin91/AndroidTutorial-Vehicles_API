@@ -14,7 +14,7 @@ var GenerateData = function(){
     var name = auto[Math.floor(Math.random()*(auto.length-1))]+'_'+Math.floor(Math.random()*49+1);
     var targ = generateTarg();
     var user = users[Math.floor(Math.random()*(users.length-1))];
-    console.log('name: '+name+' targ: '+targ+' user: '+user);
+    //console.log('name: '+name+' targ: '+targ+' user: '+user);
     Vehicles.create({
       name: name,
       targ: targ,
