@@ -9,7 +9,7 @@ var passport = require('passport');
 
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://mongo/android_turorial', function(err) {
+mongoose.connect('mongodb://127.0.0.1/android_turorial', function(err) {
     if(err) {
         console.log('connection error', err);
     } else {
