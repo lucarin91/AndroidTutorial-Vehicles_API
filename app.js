@@ -8,7 +8,7 @@ var session = require('express-session');
 var passport = require('passport');
 
 
-var mongoose = require('mongoose');
+/*var mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1/android_turorial', function(err) {
     if(err) {
         //console.log('connection error', err);
@@ -17,7 +17,7 @@ mongoose.connect('mongodb://127.0.0.1/android_turorial', function(err) {
         require('./controllers/exampleData')();
     }
 });
-
+*/
 var app = express();
 
 // view engine setup
