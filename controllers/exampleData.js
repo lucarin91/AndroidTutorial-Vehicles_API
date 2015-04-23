@@ -6,7 +6,7 @@ var GenerateData = function(){
   var alphabet = '1234567890abcdefghijklmnopqrstuvwxyz';
   var users = ['carlo','federico','luca','stefano','gesu','', '', '', '',''];
 
-  console.log('generate');
+  //console.log('generate');
   Vehicles.remove({},function(err,data){
 
   });

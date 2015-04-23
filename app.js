@@ -11,9 +11,9 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1/android_turorial', function(err) {
     if(err) {
-        console.log('connection error', err);
+        //console.log('connection error', err);
     } else {
-        console.log('connection successful');
+        //console.log('connection successful');
         require('./controllers/exampleData')();
     }
 });
