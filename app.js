@@ -34,9 +34,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 // Use the passport package in our application
 app.use(passport.initialize());
-app.use(session({secret:'askjdhaskdjh',
+/*app.use(session({secret:'askjdhaskdjh',
                  resave:true,
-                 saveUninitialized:true}));
+                 saveUninitialized:true}));*/
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/index'));
