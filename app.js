@@ -7,18 +7,29 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
 
+var app = express();
 
-/*var mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1/android_turorial', function(err) {
+// development only
+if ('development' == app.get('env')) {
+  console.log("development");
+  app.set('mongodb_uri', 'mongo');
+}
+
+// production only
+if ('production' == app.get('env')) {
+  console.log("production");
+  app.set('mongodb_uri', 'localhost');
+}
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://'+app.get('mongodb_uri')+'/android_turorial', function(err) {
     if(err) {
-        //console.log('connection error', err);
+        console.log('connection error', err);
     } else {
-        //console.log('connection successful');
+        console.log('connection successful');
         require('./controllers/exampleData')();
     }
 });
-*/
-var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -34,9 +45,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 // Use the passport package in our application
 app.use(passport.initialize());
-/*app.use(session({secret:'askjdhaskdjh',
+app.use(session({secret:'askjdhaskdjh',
                  resave:true,
-                 saveUninitialized:true}));*/
+                 saveUninitialized:true}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/index'));
@@ -75,3 +86,5 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+
+var server = app.listen();
